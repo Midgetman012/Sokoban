@@ -50,7 +50,7 @@ void Level::LoadLevel(int _levelToLoad)
 	// TODO
 
 	// Clear out our lists
-	// TODO
+	m_background.clear();
 
 	// Set the current level
 	m_currentLevel = _levelToLoad;
@@ -73,6 +73,9 @@ void Level::LoadLevel(int _levelToLoad)
 	int x = 0;
 	int y = 0;
 
+	//Create a first row in our grid
+	m_background.push_back(std::vector<sf::Sprite>());
+
 	// Create the player first as other objects will need to reference it
 	
 	// Read each character one by one from the file...
@@ -93,13 +96,16 @@ void Level::LoadLevel(int _levelToLoad)
 		{
 			++y;
 			x = 0;
+
+			//Create a new row in our grid
+			m_background.push_back(std::vector<sf::Sprite>());
 		}
 		else
 		{
 			// Create background sprite
 			//It will be some object or empty space so we need a background
 			m_background[y].push_back(sf::Sprite(AssetManager::GetTexture("graphics/ground.png")));
-			m_background[y][x].setPosition(x*m_cellSize)
+			m_background[y][x].setPosition(x*m_cellSize, y*m_cellSize);
 
 			if (ch == '-')
 			{
