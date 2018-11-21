@@ -1,7 +1,7 @@
 #pragma once
 
-// Project Includes
-#include "GameObject.h"
+// Libraryincludes
+#include <SFML/Graphics.hpp>
 
 class Level
 {
@@ -20,10 +20,5 @@ public:
 private: 
 
 	int m_currentLevel;
-	GameObject* m_player;
-	std::vector<GameObject*> m_updateList;
-	std::vector<GameObject*> m_drawListWorld;
-	std::vector<GameObject*> m_drawListUI;
-	std::vector<std::pair<GameObject*, GameObject*> > m_collisionList;
 
 };
