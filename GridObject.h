@@ -2,11 +2,10 @@
 
 //Project includes
 #include "Framework/SpriteObject.h"
-#include "Level.h"
 
 // Forward declaration
 // only works with pointers/reference
-class Level:
+class Level;
 
 class GridObject : public SpriteObject
 {

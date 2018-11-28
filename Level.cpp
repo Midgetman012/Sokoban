@@ -2,6 +2,8 @@
 #include "Level.h"
 #include "Framework/AssetManager.h"
 #include "Wall.h"
+#include "Player.h"
+#include "Storage.h"
 
 // Library Includes
 #include <iostream>
@@ -147,6 +149,20 @@ void Level::LoadLevel(int _levelToLoad)
 				wall->SetLevel(this);
 				wall->SetGridPosition(x, y);
 				m_contents[y][x].push_back(wall);
+			}
+			else if (ch == 'P')
+			{
+				Player* player = new Player();
+				player->SetLevel(this);
+				player->SetGridPosition(x, y);
+				m_contents[y][x].push_back(player);
+			}
+			else if (ch == 'S')
+			{
+				Storage* storage = new Storage();
+				storage->SetLevel(this);
+				storage->SetGridPosition(x, y);
+				m_contents[y][x].push_back(storage);
 			}
 			else
 			{
